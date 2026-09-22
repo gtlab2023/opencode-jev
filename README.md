@@ -56,7 +56,7 @@ variables (options win):
 | --- | --- | --- | --- |
 | `apiKey` | `TYPESAFE_API_KEY` | – | TypeSafe API key |
 | `model` | `TYPESAFE_MODEL` | `jev-latest` | System One model |
-| `baseURL` | `TYPESAFE_ENDPOINT` | – | Custom API endpoint |
+| `baseURL` | `TYPESAFE_BASE_URL` | SDK default (`https://api.typesafe.ai`) | Custom API endpoint / proxy |
 | `timeoutMs` | `JEV_TIMEOUT_MS` | `8000` | Per-request timeout; also the max wait before the LLM call proceeds without a suggestion |
 | `gateThreshold` | `JEV_GATE_THRESHOLD` | `0.30` | Mean of the gate nouls below which nothing is suggested |
 | `fitsThreshold` | `JEV_FITS_THRESHOLD` | `0.30` | Best fit-noul below which the shortlist is rejected |

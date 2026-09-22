@@ -12,12 +12,7 @@
  */
 import * as fs from "fs"
 import * as path from "path"
-import {
-  choice,
-  noul,
-  TypeSafeClient,
-  type TypeSafeClientConfig,
-} from "@typesafe-ai/sdk"
+import { choice, noul, TypeSafeClient } from "@typesafe-ai/sdk"
 
 export interface SkillEntry {
   name: string
@@ -142,13 +137,15 @@ export class JevSuggester {
       this.client = null
       return
     }
-    const baseURL = config.baseURL ?? process.env.TYPESAFE_ENDPOINT
-    const clientConfig: TypeSafeClientConfig & { apiKey?: string } = {
-      timeout: this.opts.timeoutMs,
-      ...(baseURL ? { baseURL } : {}),
-    }
+    // baseURL intentionally has no default: the SDK resolves
+    // config.baseURL ?? TYPESAFE_BASE_URL ?? https://api.typesafe.ai itself.
+    const baseURL = config.baseURL
     try {
-      this.client = new TypeSafeClient({ ...clientConfig, apiKey })
+      this.client = new TypeSafeClient({
+        timeout: this.opts.timeoutMs,
+        ...(baseURL !== undefined ? { baseURL } : {}),
+        apiKey,
+      })
     } catch {
       this.client = null
     }
