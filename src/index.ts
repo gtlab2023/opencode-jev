@@ -18,7 +18,7 @@
  *   ]
  *
  * Every option falls back to environment variables (TYPESAFE_API_KEY,
- * TYPESAFE_MODEL, TYPESAFE_ENDPOINT, JEV_TIMEOUT_MS, JEV_GATE_THRESHOLD,
+ * TYPESAFE_MODEL, TYPESAFE_BASE_URL, JEV_TIMEOUT_MS, JEV_GATE_THRESHOLD,
  * JEV_FITS_THRESHOLD) and then to defaults.
  */
 import type { Hooks, PluginInput } from "@opencode-ai/plugin"
